@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-arcade {
+  font-family: 'Bangers', 'Fredoka', Impact, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-ui {
+  font-family: 'Fredoka', system-ui, sans-serif;
+}
+
+/* Bold crisp Crazy Taxi style outline shadow */
+.title-stroke {
+  -webkit-text-stroke: 3px #1c0c1f;
+  paint-order: stroke fill;
+  text-shadow:
+    0 5px 0 #7a1714,
+    0 9px 18px rgba(15, 6, 20, 0.55);
+}
+
+.title-stroke-sm {
+  -webkit-text-stroke: 2px #1c0c1f;
+  paint-order: stroke fill;
+  text-shadow: 0 3px 0 rgba(18, 8, 22, 0.72);
+}
+
+.hud-outline {
+  text-shadow:
+    0 2px 0 rgba(15, 8, 22, 0.88),
+    0 4px 10px rgba(15, 8, 22, 0.45);
+}
+
+/* Papel picado scalloped festive mini stripe */
+.papel-stripe {
+  background: repeating-linear-gradient(
+    90deg,
+    #e62e7a 0px,
+    #e62e7a 20px,
+    #ffb81c 20px,
+    #ffb81c 40px,
+    #14b86a 40px,
+    #14b86a 60px,
+    #19a7ee 60px,
+    #19a7ee 80px,
+    #ff5a2a 80px,
+    #ff5a2a 100px
+  );
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.55) translateY(14px) rotate(-3deg);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.12) translateY(-4px) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes stunt-float {
+  0% {
+    transform: scale(0.6) translateY(18px);
+    opacity: 0;
+  }
+  18% {
+    transform: scale(1.1) translateY(-2px);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1) translateY(-16px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.92) translateY(-34px);
+    opacity: 0;
+  }
+}
+
+@keyframes urgent-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes turbo-edge {
+  0%,
+  100% {
+    opacity: 0.48;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.34s cubic-bezier(0.22, 1.4, 0.36, 1) forwards;
+}
+
+.animate-stunt {
+  animation: stunt-float 1.25s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+.animate-urgent {
+  animation: urgent-pulse 0.42s ease-in-out infinite;
+}
+
+.turbo-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 190, 60, 0) 56%,
+    rgba(255, 150, 20, 0.22) 84%,
+    rgba(255, 70, 20, 0.42) 100%
+  );
+  animation: turbo-edge 0.24s ease-in-out infinite;
+}
+
+.turbo-vignette-blue {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(50, 195, 255, 0) 54%,
+    rgba(30, 185, 255, 0.25) 84%,
+    rgba(0, 140, 255, 0.48) 100%
+  );
+  animation: turbo-edge 0.2s ease-in-out infinite;
+}
+
+.low-time-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 30, 40, 0) 60%,
+    rgba(235, 32, 52, 0.28) 100%
+  );
+}
+
+/* Nice hidden scrollbars for shop drawer on small phones */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
